@@ -9,11 +9,11 @@ package Herencia;
  * @author Gotcha
  */
 public class Reservacion {
-    public int codigo;
-    public char asiento;
-    public int fila;
-    public String nombre;
-    public double precio;
+    protected int codigo;
+    protected char asiento;
+    protected int fila;
+    protected String nombre;
+    protected double precio;
     
     public Reservacion(int codigo, String nombre, double precio) {
         this.codigo = codigo;
@@ -39,6 +39,10 @@ public class Reservacion {
     
     public String getAsiento(){
         return "" + fila + asiento;
+    }
+    
+    public void quienSoy(){
+        System.out.println("Soy El PAPA de las reservas");
     }
     
     public void imprimir(){
