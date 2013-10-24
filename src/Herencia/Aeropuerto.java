@@ -20,7 +20,25 @@ public class Aeropuerto {
         
         for(Reservacion rev : reservas){
             rev.quienSoy();
+            
+          
+            if( rev instanceof PrimeraClase){
+                System.out.println("SOY PRIMERA CLASE");
+                ((PrimeraClase)rev).setWifiPlan(true);
+            }
+            else if( rev instanceof SegundaClase){
+                System.out.println("SOY SEGUNDA CLASE");
+                ((SegundaClase)rev).pelicula();
+            }
+            else if( rev instanceof Reservacion ){
+                System.out.println("SOY RESERVACION");
+            }
+            else{
+                System.out.println("NO SE QUE SOY");
+            }
+            
         }
+             
         System.out.println("\n");
         reservas.remove(0);
         for(Reservacion rev : reservas){
