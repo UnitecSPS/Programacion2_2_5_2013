@@ -14,6 +14,7 @@ public class Reservacion {
     protected int fila;
     protected String nombre;
     protected double precio;
+    public static final int version = 5;
     
     public Reservacion(int codigo, String nombre, double precio) {
         this.codigo = codigo;
@@ -21,23 +22,23 @@ public class Reservacion {
         this.precio = precio;
     }
     
-    //public Reservacion(int codigo){
-      //  this(codigo, "Fulanito", 0);
-    //}
+    public Reservacion(int codigo){
+        this(codigo, "Fulanito", 0);
+    }
 
-    public int getCodigo() {
+    public final int getCodigo() {
         return codigo;
     }
 
-    public String getNombre() {
+    public final String getNombre() {
         return nombre;
     }
 
-    public double getPrecio() {
+    public final double getPrecio() {
         return precio;
     }
     
-    public String getAsiento(){
+    public final String getAsiento(){
         return "" + fila + asiento;
     }
     
@@ -46,6 +47,9 @@ public class Reservacion {
     }
     
     public void imprimir(){
+        final int x;
+        x = 2;
+        //x=9; seria un error
         System.out.println("------------------------------");
         System.out.println("CODIGO RESERVA: " + codigo);
         System.out.println("PASAJERO: " + nombre);

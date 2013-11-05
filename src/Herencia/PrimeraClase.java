@@ -8,7 +8,7 @@ package Herencia;
  *
  * @author Gotcha
  */
-public class PrimeraClase extends Reservacion {
+public final class PrimeraClase extends Reservacion {
     private boolean wifiPlan;
 
     public PrimeraClase(int codigo, String nombre){

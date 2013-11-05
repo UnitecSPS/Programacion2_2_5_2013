@@ -27,6 +27,10 @@ public class BarcoPesquero extends Barco{
         pecesCapturados++;
     }
 
+    /**
+     * Esta funcion esta para vaciar el barco
+     * @return El monto generado por el barco
+     */
     @Override
     public double vaciarCobrar(){
         int total = pecesCapturados * precioxpescado;
@@ -34,6 +38,10 @@ public class BarcoPesquero extends Barco{
         return total;
     }
     
+    /**
+     * Es para agregar un cantidad de <code>n</code> de peces
+     * @param n Cantidad total a agregar
+     */
     public void agregarCardumen(int n){
         pecesCapturados += n;
     }
