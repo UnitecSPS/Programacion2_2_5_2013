@@ -4,6 +4,9 @@
  */
 package visual.javatravel;
 
+import javax.swing.AbstractButton;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Docente 17082011
@@ -28,29 +31,39 @@ public class Venta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rbTipoReserva = new javax.swing.ButtonGroup();
+        rbPrimeraClase = new javax.swing.JRadioButton();
+        rbSegundaClase = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         lbltest = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
 
-        jRadioButton1.setText("Primera Clase");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        rbTipoReserva.add(rbPrimeraClase);
+        rbPrimeraClase.setText("Primera Clase");
+        rbPrimeraClase.setActionCommand("Primera");
+        rbPrimeraClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                rbPrimeraClaseActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Segunda Clase");
+        rbTipoReserva.add(rbSegundaClase);
+        rbSegundaClase.setSelected(true);
+        rbSegundaClase.setText("Segunda Clase");
+        rbSegundaClase.setActionCommand("Segunda");
 
         jButton1.setText("Procesar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         lbltest.setText("jLabel1");
 
@@ -64,8 +77,8 @@ public class Venta extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2)
+                            .addComponent(rbPrimeraClase)
+                            .addComponent(rbSegundaClase)
                             .addComponent(jButton1)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbltest)
@@ -75,12 +88,12 @@ public class Venta extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton2)
-                .addGap(18, 18, 18)
+                .addComponent(rbPrimeraClase)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbSegundaClase, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addComponent(lbltest)
                 .addContainerGap())
         );
@@ -88,14 +101,36 @@ public class Venta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void rbPrimeraClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPrimeraClaseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_rbPrimeraClaseActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_formWindowClosing
+    
+    private String getSelectedReservationType() {
+        
+        
+        if(rbPrimeraClase.isSelected())
+            return rbPrimeraClase.getText();
+        return rbSegundaClase.getText();
+    }
+        
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String option = rbTipoReserva.getSelection().getActionCommand();
+        String selectedOption = getSelectedReservationType();
+        
+        int op = JOptionPane.showConfirmDialog(this, "Usted Selecciono " + selectedOption, "SELECCIONADO", 
+                JOptionPane.OK_CANCEL_OPTION, 
+                JOptionPane.INFORMATION_MESSAGE);
+        
+        if( op == JOptionPane.OK_OPTION){
+            new DatosReserva(option).setVisible(true);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,8 +168,11 @@ public class Venta extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JLabel lbltest;
+    private javax.swing.JRadioButton rbPrimeraClase;
+    private javax.swing.JRadioButton rbSegundaClase;
+    private javax.swing.ButtonGroup rbTipoReserva;
     // End of variables declaration//GEN-END:variables
+
+
 }
