@@ -10,6 +10,7 @@ package enums;
  */
 public class Blockbuster {
     public static void main(String[] args) {
+        ArrayIndexOutOfBoundsException e;
         Movie hp = new Movie("ESTRENo");
         System.out.println("Pagar por 2 dias: " +
                 hp.getPago(2));
