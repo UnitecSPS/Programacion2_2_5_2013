@@ -11,7 +11,7 @@ package interfaces;
 public class PS3 implements iPlayStation {
 
     @Override
-    public void psnConnection(String username) {
+    public void psnConnection(String username) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -34,5 +34,6 @@ public class PS3 implements iPlayStation {
     public void serverConnection(int pls) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
     
 }

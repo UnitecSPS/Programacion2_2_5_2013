@@ -13,13 +13,21 @@ import java.util.Scanner;
 public class ClaseA {
     Scanner lea = new Scanner(System.in);
     
-    public void FuncA(){
+    public ClaseA()throws Exception{
+        
+    }
+    
+    public void FuncA() throws NegativeValueException{
         FuncB();
         System.out.println("FIN DE FUNCA");
     }
     
-    public void FuncB(){
-        int x = lea.nextInt()/0;
+    public void FuncB()throws NegativeValueException{
+        //lea.close();
+        int x = lea.nextInt();
+        if(x < 0 ){
+            throw new NegativeValueException();
+        }
         System.out.println("FIN DE FUNCB");
     }
 }

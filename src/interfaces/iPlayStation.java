@@ -9,5 +9,5 @@ package interfaces;
  * @author Docente 17082011
  */
 public interface iPlayStation extends SmartDevice, Multiplayer {
-    void psnConnection(String username);
+    void psnConnection(String username)throws Exception;
 }
