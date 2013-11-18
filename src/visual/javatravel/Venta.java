@@ -91,9 +91,9 @@ public class Venta extends javax.swing.JFrame {
                 .addComponent(rbPrimeraClase)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rbSegundaClase, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(lbltest)
                 .addContainerGap())
         );
@@ -129,6 +129,7 @@ public class Venta extends javax.swing.JFrame {
         
         if( op == JOptionPane.OK_OPTION){
             new DatosReserva(option).setVisible(true);
+            this.setVisible(false);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

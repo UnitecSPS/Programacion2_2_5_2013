@@ -4,9 +4,8 @@
  */
 package visual.javatravel;
 
-import Herencia.Reservacion;
+import Herencia.AmericanAirlines;
 import java.awt.Image;
-import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 /**
@@ -14,14 +13,13 @@ import javax.swing.ImageIcon;
  * @author Docente 17082011
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-    static ArrayList<Reservacion> reservaciones;
+    static AmericanAirlines aa = new AmericanAirlines();
     /**
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
         initComponents();
         resizeIcon();
-        reservaciones = new ArrayList<Reservacion>();
     }
     
     private void resizeIcon(){
@@ -67,6 +65,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         jButton2.setText("Lista De Boletos");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Despachar Avion");
 
@@ -129,6 +132,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("TEST");
     }//GEN-LAST:event_formWindowClosing
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new Listado().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
