@@ -4,15 +4,9 @@
  */
 package archivos;
 
-/**
- *
- * @author Docente 17082011
- */
-public class Elga {
-    public static void main(String[] args) throws Exception {
-        Prestamista presta = new Prestamista();
-        presta.addPrestamo("Carlos",80000,0.02,12);
-        /*
+import java.util.Scanner;
+
+/*
          * MENU
          *   1- Agregar Prestamo
          *   2- Imprimir Dato de Prestamo =
@@ -34,5 +28,55 @@ public class Elga {
          *       Al final un MONTO TOTAL entre todos los prestamos
          * 
          */
+
+public class Elga {
+    public static void main(String[] args) {
+        Prestamista presta = new Prestamista();
+        Scanner lea = new Scanner(System.in);
+        
+        int op;
+        
+        do{
+            System.out.println("1- Agregar Prestamo");
+            System.out.println("2- Estado de Cuenta de Prestamo");
+            System.out.println("3- Pagar Cuota");
+            System.out.println("4- Imprimir Prestamos");
+            System.out.println("5- Salir");
+            System.out.print("Escoja opcion: ");
+            op = lea.nextInt();
+            
+            try{
+                switch(op){
+                    case 1:
+                        System.out.print("Cliente: ");
+                        String cli = lea.next();
+                        System.out.print("Monto: ");
+                        double mon = lea.nextDouble();
+                        System.out.print("Tasa: ");
+                        double t = lea.nextDouble();
+                        System.out.print("Cantidad: ");
+                        int cant = lea.nextInt();
+
+                        presta.addPrestamo(cli, mon, t, cant);
+                        break;
+                    case 2:
+                        System.out.print("Codigo: ");
+                        int cod = lea.nextInt();
+                        presta.estadoCuenta(cod);
+                        break;
+                    case 3:
+                        System.out.print("Codigo: ");
+                        cod = lea.nextInt();
+                        presta.pagarCuota(cod);
+                        break;
+                }
+            }
+            catch(Exception e){
+                System.out.println("ERROR: " + e.getMessage());
+            }
+        }while(op!=5);
+        
+        
+        
     }
 }
