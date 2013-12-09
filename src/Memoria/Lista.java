@@ -41,6 +41,52 @@ public class Lista {
     }
     
     public boolean remove(String name){
+        
+        if( raiz != null ){
+            if( raiz.name.equals(name) ){
+                raiz = raiz.siguiente;
+            }
+            else{
+                Nodo tmp = raiz;
+                
+                while(tmp.siguiente != null &&
+                        !tmp.siguiente.name.equals(name)){
+                    tmp = tmp.siguiente;
+                }
+                
+                if(tmp.siguiente != null){
+                    tmp.siguiente = tmp.siguiente.siguiente;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    public boolean addInTheMiddle(Nodo obj, String name){
+        Nodo tmp = raiz;
+        
+        while(tmp != null && !tmp.name.equals(name)){
+            tmp = tmp.siguiente;
+        }
+        
+        if( tmp != null ){
+            obj.siguiente = tmp.siguiente;
+            tmp.siguiente = obj;
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean contains(String name){
+        Nodo tmp = raiz;
+        
+        while(tmp != null){
+            if( tmp.name.equals(name))
+                return true;
+            tmp = tmp.siguiente;
+        }
+        
         return false;
     }
 }
